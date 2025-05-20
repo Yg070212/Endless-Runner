@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638827246695312044
-    m_Hash: 4060000706
+      ticks: 638832427698364803
+    m_Hash: 2315907030
   m_LockFileStatus:
     m_FilePath: "C:/Users/user/OneDrive/\uBC14\uD0D5 \uD654\uBA74/Game Project/Github/Endless-Runner/Game2/Packages/packages-lock.json"
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638827246695387219
-    m_Hash: 4227396876
+      ticks: 638832427698364803
+    m_Hash: 3457188611
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
