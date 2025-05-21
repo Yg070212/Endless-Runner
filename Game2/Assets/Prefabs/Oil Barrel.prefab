@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7475009750966075818}
   - component: {fileID: 378953499038838722}
   - component: {fileID: 1992939162264527381}
+  - component: {fileID: 360347675007906400}
   m_Layer: 0
   m_Name: Oil Barrel
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.720496, y: 0.7204962, z: 1.2155893}
   m_Center: {x: 0, y: 0, z: 0.60779464}
+--- !u!114 &360347675007906400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531118390826473217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f2f28601c6e53468d0eee1d35f43d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
