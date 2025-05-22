@@ -923,10 +923,10 @@ MonoBehaviour:
   random: 0
   createCount: 5
   obstacles: []
-  prefab:
-  - {fileID: 6453243314000364081, guid: 877b37949970a10428d6a07f32a0f07f, type: 3}
-  - {fileID: 2531118390826473217, guid: 2339df1a98b96784e80a19efb2ea071d, type: 3}
-  - {fileID: 4455243235266879373, guid: e54e146d112e28a41a544e081cf0053b, type: 3}
+  obstacleNames:
+  - Barrier
+  - Oil Barrel
+  - Traffic Cone
   transforms:
   - {fileID: 557519568}
   - {fileID: 166399291}
