@@ -12,7 +12,7 @@ public class ObstacleManager : MonoBehaviour
 
     [SerializeField] string [ ] obstacleNames;
 
-    [SerializeField] Transform[] transforms;
+    [SerializeField] Transform[ ] transforms;
 
     void Start()
     {
@@ -88,7 +88,7 @@ public class ObstacleManager : MonoBehaviour
 
             obstacles[random].SetActive(true);
 
-            yield return new WaitForSeconds(5);
+            yield return CoroutineCache.WaitForSecond(5.0f);
         }
     }
 }
