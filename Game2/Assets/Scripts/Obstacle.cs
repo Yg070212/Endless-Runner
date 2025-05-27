@@ -13,6 +13,6 @@ public class Obstacle : MonoBehaviour, Collidable
 
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(Vector3.up * SpeedManager.Instance.Speed * Time.deltaTime);
     }
 }
