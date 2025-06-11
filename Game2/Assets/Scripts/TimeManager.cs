@@ -13,9 +13,25 @@ public class TimeManager : MonoBehaviour
     [SerializeField] int second;
     [SerializeField] int microsecond;
 
+    private void OnEnable()
+    {
+        State.Subscribe(Condition.START, Excute);
+        State.Subscribe(Condition.FINISH, Release);
+    }
+
     private void Start()
     {
         StartCoroutine(Measure());
+    }
+
+    void Excute()
+    {
+        StartCoroutine (Measure());
+    }
+
+    void Release()
+    {
+        StopAllCoroutines();
     }
 
     public IEnumerator Measure()
@@ -32,6 +48,12 @@ public class TimeManager : MonoBehaviour
 
             yield return null;
         }
-        
     }
+
+    private void OnDisable()
+    {
+        State.Unsubscribe(Condition.START, Excute);
+        State.Unsubscribe(Condition.FINISH, Release);
+    }
+
 }

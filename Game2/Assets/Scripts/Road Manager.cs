@@ -9,11 +9,32 @@ public class RoadManager : MonoBehaviour
     [SerializeField] float offset = 40.0f;
     [SerializeField] List<GameObject> roads;
 
-    void Update()
+    private void OnEnable()
     {
-        for (int i = 0; i < roads.Count; i++)
+        State.Subscribe(Condition.START, Excute);
+        State.Subscribe(Condition.FINISH, Release);
+    }
+
+    void Excute()
+    {
+        StartCoroutine(Coroutine());
+    }
+
+    void Release()
+    {
+        StopAllCoroutines();
+    }
+
+    IEnumerator Coroutine()
+    {
+        while (true)
         {
-            roads[i].transform.Translate(Vector3.back * SpeedManager.Instance.Speed * Time.deltaTime);
+            for (int i = 0; i < roads.Count; i++)
+            {
+                roads[i].transform.Translate(Vector3.back * SpeedManager.Instance.Speed * Time.deltaTime);
+            }
+
+            yield return null;
         }
     }
 
@@ -30,4 +51,9 @@ public class RoadManager : MonoBehaviour
         roads.Add(newRoad);
     }
 
+    private void OnDisable()
+    {
+        State.Unsubscribe(Condition.START, Excute);
+        State.Unsubscribe(Condition.FINISH, Release);
+    }
 }

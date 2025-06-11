@@ -6,6 +6,11 @@ public class MouseManager : MonoBehaviour
 {
     [SerializeField] Texture2D texture2D;
 
+    private void OnEnable()
+    {
+        State.Subscribe(Condition.START, DisableMode);
+        State.Subscribe(Condition.FINISH, EnableMode);
+    }
 
     private void Awake()
     {
@@ -28,5 +33,11 @@ public class MouseManager : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void OnDisable()
+    {
+        State.Unsubscribe(Condition.START, DisableMode);
+        State.Unsubscribe(Condition.FINISH, EnableMode);
     }
 }

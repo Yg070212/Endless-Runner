@@ -3,26 +3,43 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class SpeedManager : MonoBehaviour
+public class SpeedManager : Singleton<SpeedManager>
 {
+
     [SerializeField] float speed = 30.0f;
-
-    static SpeedManager instance;
-
-    public static SpeedManager Instance {  get { return instance; } }
+    [SerializeField] float limitSpeed = 60.0f;
 
     public float Speed {  get { return speed; } }
 
-    void Start()
+    private void OnEnable()
     {
-        if (instance == null)
+        State.Subscribe(Condition.START, Excute);
+        State.Subscribe(Condition.FINISH, Release);
+    }
+
+    private void Excute()
+    {
+        StartCoroutine(Increase());
+    }
+
+    private void Release()
+    {
+        StopAllCoroutines();
+    }
+
+    IEnumerator Increase()
+    {
+        while (speed < limitSpeed)
         {
-            instance = this;
+            yield return CoroutineCache.WaitForSecond(5.0f);
+
+            speed = speed + 2.5f;
         }
     }
 
-    void Update()
+    private void OnDisable()
     {
-        
+        State.Unsubscribe(Condition.START, Excute);
+        State.Unsubscribe(Condition.FINISH, Release);
     }
 }
